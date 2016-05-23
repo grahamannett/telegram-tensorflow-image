@@ -15,18 +15,6 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-vids = [
-    'https://www.youtube.com/watch?v=5pGJCkCDK5A',
-    'https://www.youtube.com/watch?v=iaFa0sYjId8',
-    'https://www.youtube.com/watch?v=gMkc_BHR5PA',
-    'https://www.youtube.com/watch?v=sUcr24DFxvA',
-    'https://www.youtube.com/watch?v=qAkETBkl-zc',
-    'https://www.youtube.com/watch?v=h8growuncz0',
-    'https://www.youtube.com/watch?v=XzDp1H1mBmk',
-    'https://www.youtube.com/watch?v=S89srrSQ3Jk']
-
-msg = 'tell em: '
-
 
 def get_config_tokn():
     config = ConfigParser()
@@ -67,8 +55,7 @@ def inlinequery(bot, update):
     results.append(InlineQueryResultArticle(
         id=uuid4(),
         title="tell em",
-        input_message_content=InputTextMessageContent(msg +
-                                                      random.choice(vids))))
+        input_message_content=InputTextMessageContent()))
 
     bot.answerInlineQuery(update.inline_query.id, results=results)
 
@@ -91,12 +78,10 @@ def main():
     # on noncommand i.e message - echo the message on Telegram
     dp.addHandler(InlineQueryHandler(inlinequery))
 
-    # log all errors
+    # Start the Bot log all errors
+
     dp.addErrorHandler(error)
-
-    # Start the Bot
     updater.start_polling()
-
     # Block until the user presses Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.

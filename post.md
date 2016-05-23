@@ -17,13 +17,7 @@ WORKDIR /root/
 
 ADD data/inception-v3 inception-v3
 ```
-and grahama/tensorflow:slim-serving looks like [link to slim-serving]
-
-# Creating Seq2Seq Model
-
-https://github.com/farizrahman4u/seq2seq
-https://www.tensorflow.org/versions/r0.8/tutorials/seq2seq/index.html
-https://github.com/tensorflow/models
+and grahama/tensorflow:slim-serving looks like [link to slim-serving](link-to-slim-serving.md)
 
 
 # Configuring with python-telegram-bot
