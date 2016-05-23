@@ -12,10 +12,10 @@
 # USAGE:
 #
 
-FROM grahama/tensorflow:serving-slim
+FROM grahama/tensorflow:slim-serving
 
 MAINTAINER grahama <graham.annett@gmail.com>
 
 WORKDIR /root/
 
-ADD data .
+ADD data/inception-v3 inception-v3
